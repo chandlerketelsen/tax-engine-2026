@@ -98,5 +98,4 @@ def run_tax_calc():
     print("Gross Tax Liability: $" + str(round(liability, 2)))
 
 
-if __name__ == "__main__":
-    run_tax_calc()
+run_tax_calc()
