@@ -1,6 +1,6 @@
 # tax_calc.py - Core Tax Liability Calculation
 # This script loads all complex data from 'tax_data.py' via standard import.
-# This avoids reliance on the unavailable 'json' module.
+# It uses only Python syntax compatible with older TI-84 Python environments.
 
 # --- 1. Data Loading ---
 # This imports the TAX_DATA dictionary defined in the tax_data.py file
@@ -19,7 +19,7 @@ def calculate_tax_liability(agi, status):
     # Ensure the status is valid and data exists
     if status not in BRACKETS or status not in DEDUCTIONS:
         # Instead of returning 0.00, print an error for better feedback
-        print("Error: Invalid status or data missing for:", status)
+        print("Error: Invalid status or data missing for: {}".format(status))
         return 0.00, 0.00
 
     # 1. Determine Taxable Income (TI)
@@ -64,7 +64,7 @@ def calculate_tax_liability(agi, status):
 
 def run_tax_calc():
     """Main execution block for user interaction."""
-    print("--- 2026 TAX CALCULATOR ---")
+    print("--- 2025 TAX CALCULATOR ---")
     
     # Simplified Input (using standard input which is available)
     try:
@@ -83,15 +83,16 @@ def run_tax_calc():
     # Check if the entered status is valid
     valid_statuses = list(DEDUCTIONS.keys())
     if status_input not in valid_statuses:
-        print(f"Invalid filing status. Use one of: {', '.join(valid_statuses)}")
+        print("Invalid filing status. Use one of: {}".format(', '.join(valid_statuses)))
         return
 
     liability, ti = calculate_tax_liability(agi, status_input)
 
-    print(f"\n--- RESULTS ({status_input}) ---")
-    print(f"Standard Deduction Used: ${DEDUCTIONS.get(status_input, 0.00):.2f}")
-    print(f"Taxable Income: ${ti:.2f}")
-    print(f"Gross Tax Liability: ${liability:.2f}")
+    # All F-strings replaced with .format() syntax to resolve Line 86 and subsequent errors.
+    print("\n--- RESULTS ({}) ---".format(status_input)) 
+    print("Standard Deduction Used: ${:.2f}".format(DEDUCTIONS.get(status_input, 0.00)))
+    print("Taxable Income: ${:.2f}".format(ti))
+    print("Gross Tax Liability: ${:.2f}".format(liability))
 
 
 if __name__ == "__main__":
