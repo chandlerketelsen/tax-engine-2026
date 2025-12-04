@@ -124,7 +124,7 @@ def run_tax_calc():
     """Main execution block for user interaction."""
     print("--- 2025 TAX CALCULATOR ---")
     
-    # Simple Input
+    # Simple Input (AGI)
     try:
         agi_input = input("Enter AGI: ")
         agi = float(agi_input)
@@ -132,18 +132,39 @@ def run_tax_calc():
         print("Invalid AGI entered. Please use numbers.")
         return
         
-    status_input = input("Enter Status (SINGLE/MARRIED_JOINT/HEAD_OF_HOUSEHOLD): ").upper()
+    # Mapping for numerical status selection
+    STATUS_MAP = {
+        1: "SINGLE",
+        2: "MARRIED_JOINT",
+        3: "HEAD_OF_HOUSEHOLD"
+    }
+
+    # Status Selection Input
+    print("\nSelect Filing Status:")
+    print("1. Single")
+    print("2. Married, Joing")
+    print("3. Head of Household")
     
+    try:
+        selection_input = input("Selection (1/2/3): ")
+        status_selection = int(selection_input)
+    except ValueError:
+        print("Invalid selection. Please enter 1, 2, or 3.")
+        return
+
     # Check if data was parsed correctly (should not fail now)
     if not BRACKETS:
         print("Fatal Error: Internal data parsing failed.")
         return
 
-    # Check if the entered status is valid
-    valid_statuses = list(DEDUCTIONS.keys())
-    if status_input not in valid_statuses:
-        print("Invalid filing status. Use one of: " + ', '.join(valid_statuses))
+    # Check if the entered number is valid
+    if status_selection not in STATUS_MAP:
+        print("Invalid selection. Use 1, 2, or 3.")
         return
+    
+    # Map the number to the required status string
+    status_input = STATUS_MAP[status_selection]
+
 
     liability, ti = calculate_tax_liability(agi, status_input)
 
