@@ -1,52 +1,52 @@
-# 2026 Federal Tax Liability Calculator (Pre-Credits)
-# All data is estimated 2026 inflation-adjusted values.
+# 2025 Federal Tax Liability Calculator (Pre-Credits)
+# All data is official 2025 inflation-adjusted values.
 
-# 1. HARDCODED 2026 TAX DATA (Standard Deduction)
+# 1. HARDCODED 2025 TAX DATA (Standard Deduction)
 DEDUCTIONS = {
-    "SINGLE": 15350,
-    "MFJ": 30700,
-    "HOH": 23050,
-    "MFS": 15350
+    "SINGLE": 14600,
+    "MFJ": 29200,
+    "HOH": 21900,
+    "MFS": 14600
 }
 
-# 2. HARDCODED 2026 TAX DATA (Brackets)
+# 2. HARDCODED 2025 TAX DATA (Brackets based on 2025 indexing)
 # Keys: r=Rate, t=Threshold (start of the bracket)
 BRACKETS = {
     "SINGLE": [
-      {"r": 0.10, "t": 0},
-      {"r": 0.12, "t": 12000},
-      {"r": 0.22, "t": 50000},
-      {"r": 0.24, "t": 110000},
-      {"r": 0.32, "t": 190000},
-      {"r": 0.35, "t": 240000},
-      {"r": 0.37, "t": 600000}
+      {"r": 0.10, "t": 0},          # Up to $11,600
+      {"r": 0.12, "t": 11600},       # Up to $47,150
+      {"r": 0.22, "t": 47150},       # Up to $100,525
+      {"r": 0.24, "t": 100525},      # Up to $191,950
+      {"r": 0.32, "t": 191950},      # Up to $243,750
+      {"r": 0.35, "t": 243750},      # Up to $609,350
+      {"r": 0.37, "t": 609350}       # Over $609,350
     ],
     "MFJ": [
-      {"r": 0.10, "t": 0},
-      {"r": 0.12, "t": 24000},
-      {"r": 0.22, "t": 100000},
-      {"r": 0.24, "t": 220000},
-      {"r": 0.32, "t": 380000},
-      {"r": 0.35, "t": 480000},
-      {"r": 0.37, "t": 720000}
+      {"r": 0.10, "t": 0},          # Up to $23,200
+      {"r": 0.12, "t": 23200},       # Up to $94,300
+      {"r": 0.22, "t": 94300},       # Up to $201,050
+      {"r": 0.24, "t": 201050},      # Up to $383900
+      {"r": 0.32, "t": 383900},      # Up to $487500
+      {"r": 0.35, "t": 487500},      # Up to $731200
+      {"r": 0.37, "t": 731200}       # Over $731,200
     ],
     "HOH": [
-      {"r": 0.10, "t": 0},
-      {"r": 0.12, "t": 17000},
-      {"r": 0.22, "t": 67000},
-      {"r": 0.24, "t": 140000},
-      {"r": 0.32, "t": 215000},
-      {"r": 0.35, "t": 270000},
-      {"r": 0.37, "t": 600000}
+      {"r": 0.10, "t": 0},          # Up to $16,550
+      {"r": 0.12, "t": 16550},       # Up to $63,200
+      {"r": 0.22, "t": 63200},       # Up to $100,500
+      {"r": 0.24, "t": 100500},      # Up to $191,900
+      {"r": 0.32, "t": 191900},      # Up to $243,700
+      {"r": 0.35, "t": 243700},      # Up to $609,350
+      {"r": 0.37, "t": 609350}       # Over $609,350
     ],
     "MFS": [
-      {"r": 0.10, "t": 0},
-      {"r": 0.12, "t": 12000},
-      {"r": 0.22, "t": 50000},
-      {"r": 0.24, "t": 110000},
-      {"r": 0.32, "t": 190000},
-      {"r": 0.35, "t": 240000},
-      {"r": 0.37, "t": 360000}
+      {"r": 0.10, "t": 0},          # Up to $11,600
+      {"r": 0.12, "t": 11600},       # Up to $47,150
+      {"r": 0.22, "t": 47150},       # Up to $100,525
+      {"r": 0.24, "t": 100525},      # Up to $191,950
+      {"r": 0.32, "t": 191950},      # Up to $243,750
+      {"r": 0.35, "t": 243750},      # Up to $365600
+      {"r": 0.37, "t": 365600}       # Over $365,600
     ]
 }
 
@@ -82,7 +82,7 @@ def gross_tax_calc(tax_inc, status):
 
 def run_calc():
     """Main function to run the tax calculation process."""
-    print("--- 2026 Tax Liability ---")
+    print("--- 2025 Tax Liability ---")
     
     # 1. Get Inputs (short prompts)
     try:

@@ -1,7 +1,10 @@
-# 2026 U.S. Tax Rules Engine (TI-84 Python Edition)
+# 2025 U.S. Tax Rules Engine (TI-84 Python Edition)
 
 ## Project Overview
-This repository contains a collection of Python scripts designed to accurately estimate 2026 U.S. Federal Tax liability and specific tax credits, tailored specifically for the Python interpreter on the Texas Instruments TI-84 Plus CE graphing calculator. The structure allows users to easily navigate to the desired tax law calculation and read the rules directly within the Python code, making the tax code transparent and accessible.
+
+This repository contains a collection of Python scripts designed to accurately estimate 2025 U.S. Federal Tax liability and specific tax credits, tailored specifically for the Python interpreter on the Texas Instruments TI-84 Plus CE graphing calculator.
+
+The structure allows users to easily navigate to the desired tax law calculation (e.g., Child Tax Credit, Tax Brackets) and read the rules directly within the Python code, making the tax code transparent and accessible based on official 2025 figures.
 
 ## Repository Structure (TI-84 Compatible)
 
