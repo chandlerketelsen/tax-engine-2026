@@ -1,5 +1,5 @@
 # 2025 Nonrefundable Credit for Prior Year Minimum Tax (AMT)
-# Allows recovery of certain AMT paid in prior years.
+# Allows recovery of certain AMT paid in prior years. (Statutory, non-indexed)
 
 def amt_credit_calc():
     """Calculates the amount of prior year AMT credit carryforward that can be used."""

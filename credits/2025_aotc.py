@@ -1,6 +1,6 @@
 # 2025 American Opportunity Tax Credit (AOTC)
-# Max $2,500 per student (100% of first $2,000, 25% of next $2,000)
-# Phase-out begins at $160k (MFJ) / $80k (Other)
+# Max $2,500 per student. (40% refundable)
+# Phase-out begins at $160k (MFJ) / $80k (Other) - thresholds are not indexed
 
 def aotc_calc():
     """Calculates the estimated 2025 American Opportunity Tax Credit."""
@@ -26,7 +26,7 @@ def aotc_calc():
     
     max_credit = min(credit_calc, 2500.0)
 
-    # 2. Apply income phase-out (simplified phase-out ranges)
+    # 2. Apply income phase-out (statutory, non-indexed ranges)
     if filing_status == "MFJ":
         phase_start = 160000
         phase_end = 180000
