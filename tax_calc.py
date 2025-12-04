@@ -1,6 +1,6 @@
 # tax_calc.py - Core Tax Liability Calculation
 # This script loads all complex data from 'tax_data.py' via standard import.
-# It uses only Python syntax compatible with older TI-84 Python environments.
+# IT USES ONLY SIMPLE PYTHON SYNTAX (NO F-STRINGS OR .FORMAT()) FOR TI-84 COMPATIBILITY.
 
 # --- 1. Data Loading ---
 # This imports the TAX_DATA dictionary defined in the tax_data.py file
@@ -18,8 +18,8 @@ def calculate_tax_liability(agi, status):
     
     # Ensure the status is valid and data exists
     if status not in BRACKETS or status not in DEDUCTIONS:
-        # Instead of returning 0.00, print an error for better feedback
-        print("Error: Invalid status or data missing for: {}".format(status))
+        # Using string concatenation for maximum compatibility
+        print("Error: Invalid status or data missing for: " + status)
         return 0.00, 0.00
 
     # 1. Determine Taxable Income (TI)
@@ -66,7 +66,7 @@ def run_tax_calc():
     """Main execution block for user interaction."""
     print("--- 2025 TAX CALCULATOR ---")
     
-    # Simplified Input (using standard input which is available)
+    # Simple Input
     try:
         agi_input = input("Enter AGI: ")
         agi = float(agi_input)
@@ -83,16 +83,19 @@ def run_tax_calc():
     # Check if the entered status is valid
     valid_statuses = list(DEDUCTIONS.keys())
     if status_input not in valid_statuses:
-        print("Invalid filing status. Use one of: {}".format(', '.join(valid_statuses)))
+        # Use simple concatenation to guarantee no syntax failure
+        print("Invalid filing status. Use one of: " + ', '.join(valid_statuses))
         return
 
     liability, ti = calculate_tax_liability(agi, status_input)
 
-    # All F-strings replaced with .format() syntax to resolve Line 86 and subsequent errors.
-    print("\n--- RESULTS ({}) ---".format(status_input)) 
-    print("Standard Deduction Used: ${:.2f}".format(DEDUCTIONS.get(status_input, 0.00)))
-    print("Taxable Income: ${:.2f}".format(ti))
-    print("Gross Tax Liability: ${:.2f}".format(liability))
+    # Line 86 fix: Switched to simple string concatenation
+    print("\n--- RESULTS (" + status_input + ") ---") 
+    
+    # Switched to C-style formatting or concatenation for maximum compatibility
+    print("Standard Deduction Used: $" + str(round(DEDUCTIONS.get(status_input, 0.00), 2)))
+    print("Taxable Income: $" + str(round(ti, 2)))
+    print("Gross Tax Liability: $" + str(round(liability, 2)))
 
 
 if __name__ == "__main__":
