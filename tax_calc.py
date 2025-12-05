@@ -4,7 +4,7 @@
 
 # --- 1. Embedded Raw Data ---
 # Data stored as simple nested lists to reduce memory overhead during script loading.
-# The data is based on the 2025 tax brackets you provided.
+# The data is based on the 2025 tax brackets.
 
 RAW_DEDUCTIONS = [
     ["SINGLE", 14600.00],
