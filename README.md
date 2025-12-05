@@ -8,7 +8,9 @@ The structure allows users to easily navigate to the desired tax law calculation
 
 ## Repository Structure (TI-84 Compatible)
 
-Since the TI-84 Python interpreter does not support external file imports (like JSON) or standard library features, all rules, thresholds, and rates are hardcoded directly into the script files.tax_calc.py: Core Tax Liability. Calculates Adjusted Gross Income (AGI), Taxable Income (using Standard Deduction), and Gross Tax Liability using the progressive bracket system./credits: Contains 20 individual scripts for calculating specific, complex tax credits, including phase-outs and limits.
+Since the TI-84 Python interpreter does not support external file imports (like JSON) or standard library features, all rules, thresholds, and rates are hardcoded directly into the script files.
+
+**tax_calc.py**: Core Tax Liability. Calculates Adjusted Gross Income (AGI), Taxable Income (using Standard Deduction), and Gross Tax Liability using the progressive bracket system./credits: Contains 20 individual scripts for calculating specific, complex tax credits, including phase-outs and limits.
 
 ## Execution on TI-84 CE
 
