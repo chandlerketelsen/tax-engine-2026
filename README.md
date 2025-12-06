@@ -19,5 +19,9 @@ Since the TI-84 Python interpreter does not support external file imports (like 
 Transfer the desired .py file to the calculator (e.g., using TI-Connect CE). Run the script from the Python App menu. Enter the requested inputs (e.g., income, status, expenses). The script will output the estimated credit or gross tax liability. Key Calculation Mappings
 
 To ensure short input prompts:
+
 **Filing Status**: S=Single, M=MFJ (Married Filing Jointly), H=HOH (Head of Household), F=MFS (Married Filing Separately).
-**AGI**: Adjusted Gross Income.MAGI: Modified Adjusted Gross Income.
+
+**AGI**: Adjusted Gross Income.
+
+**MAGI**: Modified Adjusted Gross Income.
